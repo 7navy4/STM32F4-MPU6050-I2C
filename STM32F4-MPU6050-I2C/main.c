@@ -158,31 +158,26 @@ int main(void){
 			
   	delay(100000);
 
-		
-	   if(0<xm & xm<50)
-	      {
-	       GPIO_SetBits(GPIOD,GPIO_Pin_14);
-	       GPIO_ResetBits(GPIOD,GPIO_Pin_12);
-	      }
-			 
-	     if(50<=xm & xm<=100)
-		{
-		  GPIO_SetBits(GPIOD, GPIO_Pin_12);
-	  	  GPIO_ResetBits(GPIOD, GPIO_Pin_14);
-		}
+	   if(0<xm & xm<50){
+	    GPIO_SetBits(GPIOD,GPIO_Pin_14);
+	    GPIO_ResetBits(GPIOD,GPIO_Pin_12);
+	   }
 			
-	     if(0<ym & ym<50)
-		 {
-	          GPIO_SetBits(GPIOD,  GPIO_Pin_13);
-	    	  GPIO_ResetBits(GPIOD,GPIO_Pin_15);
-		  }
+	   if(50<=xm & xm<=100){
+	    GPIO_SetBits(GPIOD, GPIO_Pin_12);
+	    GPIO_ResetBits(GPIOD, GPIO_Pin_14);
+	   }
+			
+	   if(0<ym & ym<50){
+	    GPIO_SetBits(GPIOD,  GPIO_Pin_13);
+	    GPIO_ResetBits(GPIOD,GPIO_Pin_15);
+	    }
 			   
-		 if(50<=ym & ym<100)
-		  {
-		   GPIO_SetBits(GPIOD, GPIO_Pin_15);
-		   GPIO_ResetBits(GPIOD,GPIO_Pin_13);
-		  }
+	   if(50<=ym & ym<100){
+  	    GPIO_SetBits(GPIOD, GPIO_Pin_15);
+	    GPIO_ResetBits(GPIOD,GPIO_Pin_13);
+	   }
 		 
-		}
+	}
 }
 	
