@@ -11,10 +11,10 @@ int16_t xl,xh,yl,yh;
 int16_t x,y,xm,ym;
 
 void delay(uint32_t i){
-   		while(i)
-       {
-				i--;										
-			 }
+   while(i)
+   {
+    i--;										
+   }
 }
 
 long map(long x,long in_min,long in_max,long out_min,long out_max)
@@ -156,7 +156,7 @@ int main(void){
 	xm=map(x,-17000,17000,0,100);
 	ym=map(y,-17000,17000,0,100);
 			
-  	delay(10000);
+  	delay(100000);
 
 		
 	   if(0<xm & xm<50)
