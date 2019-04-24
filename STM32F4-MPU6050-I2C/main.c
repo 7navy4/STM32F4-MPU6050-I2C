@@ -135,8 +135,8 @@ int main(void){
 	
 	while(1){
 		
-  	write_i2c(I2C1,ADDRESS<<1,0X3B); // PWR_MGMT_1 register 
-		write_i2c(I2C1,ADDRESS<<1,0X3B); // wakes up the MPU-6050
+  	write_i2c(I2C1,ADDRESS<<1,0X6B); // PWR_MGMT_1 register 
+		write_i2c(I2C1,ADDRESS<<1,0X00); // wakes up the MPU-6050
 
 	  write_i2c(I2C1,ADDRESS<<1,0X3B);//ACCEL_XOUT_H 
 		xh=read_i2c(I2C1,ADDRESS<<1);
