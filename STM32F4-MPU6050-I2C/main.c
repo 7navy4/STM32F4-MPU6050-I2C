@@ -136,52 +136,52 @@ int main(void){
 	while(1){
 		
   	write_i2c(I2C1,ADDRESS<<1,0X6B); // PWR_MGMT_1 register 
-		write_i2c(I2C1,ADDRESS<<1,0X00); // wakes up the MPU-6050
+	write_i2c(I2C1,ADDRESS<<1,0X00); // wakes up the MPU-6050
 
-	  write_i2c(I2C1,ADDRESS<<1,0X3B);//ACCEL_XOUT_H 
-		xh=read_i2c(I2C1,ADDRESS<<1);
+	write_i2c(I2C1,ADDRESS<<1,0X3B);//ACCEL_XOUT_H 
+	xh=read_i2c(I2C1,ADDRESS<<1);
 		
-		write_i2c(I2C1,ADDRESS<<1,0x3C);//ACCEL_XOUT_L  
-		xl=read_i2c(I2C1,ADDRESS<<1);
+	write_i2c(I2C1,ADDRESS<<1,0x3C);//ACCEL_XOUT_L  
+	xl=read_i2c(I2C1,ADDRESS<<1);
 		
-		write_i2c(I2C1,ADDRESS<<1,0x3D);//ACCEL_YOUT_H 
-		yh=read_i2c(I2C1,ADDRESS<<1);
+	write_i2c(I2C1,ADDRESS<<1,0x3D);//ACCEL_YOUT_H 
+	yh=read_i2c(I2C1,ADDRESS<<1);
 		
-	  write_i2c(I2C1,ADDRESS<<1,0x3E);//ACCEL_YOUT_L
-		yl=read_i2c(I2C1,ADDRESS<<1);
+	write_i2c(I2C1,ADDRESS<<1,0x3E);//ACCEL_YOUT_L
+	yl=read_i2c(I2C1,ADDRESS<<1);
 	
-	 	x  =((xh<<8 | xl));
-	 	y  =((yh<<8)| yl);
+	x  =((xh<<8 | xl));
+	y  =((yh<<8)| yl);
 			
-		xm=map(x,-17000,17000,0,100);
-		ym=map(y,-17000,17000,0,100);
+	xm=map(x,-17000,17000,0,100);
+	ym=map(y,-17000,17000,0,100);
 			
   	delay(10000);
 
 		
-		   if(0<xm & xm<50)
-	     {
-	      GPIO_SetBits(GPIOD,GPIO_Pin_14);
-	     	GPIO_ResetBits(GPIOD,GPIO_Pin_12);
-	     }
+	   if(0<xm & xm<50)
+	      {
+	       GPIO_SetBits(GPIOD,GPIO_Pin_14);
+	       GPIO_ResetBits(GPIOD,GPIO_Pin_12);
+	      }
 			 
 	     if(50<=xm & xm<=100)
-		   {
-			  GPIO_SetBits(GPIOD, GPIO_Pin_12);
-	  		GPIO_ResetBits(GPIOD, GPIO_Pin_14);
-			 }
+		{
+		  GPIO_SetBits(GPIOD, GPIO_Pin_12);
+	  	  GPIO_ResetBits(GPIOD, GPIO_Pin_14);
+		}
 			
-			 if(0<ym & ym<50)
-			 {
-	      GPIO_SetBits(GPIOD,  GPIO_Pin_13);
-	    	 GPIO_ResetBits(GPIOD,GPIO_Pin_15);
-		   }
+	     if(0<ym & ym<50)
+		 {
+	          GPIO_SetBits(GPIOD,  GPIO_Pin_13);
+	    	  GPIO_ResetBits(GPIOD,GPIO_Pin_15);
+		  }
 			   
 		 if(50<=ym & ym<100)
 		  {
-				GPIO_SetBits(GPIOD, GPIO_Pin_15);
-				GPIO_ResetBits(GPIOD,GPIO_Pin_13);
-			}
+		   GPIO_SetBits(GPIOD, GPIO_Pin_15);
+		   GPIO_ResetBits(GPIOD,GPIO_Pin_13);
+		  }
 		 
 		}
 }
